@@ -4,100 +4,84 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pet;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class controllerPetlar extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $dados = Pet::all();
-        return view('verPets', compact('dados'));
+        $pets = Pet::latest()->get();
+        return view('index', compact('pets'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('formCadastro');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        $validator = Validator::make(request->all(), [
-            'foto' => [
-                'required', 'file', 'mimes:jpeg,png,jpg', 'max:2048'],
+        $data = $request->validate([
+            'nome' => 'required|string|max:255',
+            'especie' => 'required|string',
+            'raca' => 'nullable|string',
+            'porte' => 'required|string',
+            'pelagem' => 'required|string',
+            'idade' => 'nullable|integer',
+            'cor' => 'required|string',
+            'sexo' => 'required|string',
+            'castrado' => 'required|string',
+            'vacinado' => 'required|string',
+            'quaisvacinas' => 'nullable|string',
+            'vermifugado' => 'required|string',
+            'descricao' => 'nullable|string',
+            'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
-        if ($validator->fails()){
-            return back()->withErrors($validator)->withInput();
+
+        if ($request->hasFile('foto')) {
+            $data['foto'] = $request->file('foto')->store('pets', 'public');
         }
-        $path = $request->file('foto')->store('images', 'public');
-        $dados = new PetLar();
-        $dados->nome = $request->input('nome');
-        $dados->especie = $request->input('especie');
-        $dados->raca = $request->input('raca');
-        $dados->porte = $request->input('porte');
-        $dados->pelagem = $request->input('pelagem');
-        $dados->idade = $request->input('idade');
-        $dados->descricao = $request->input('descricao');
-        $dados->cor = $request->input('cor');
-        $dados->sexo = $request->input('sexo');
-        $dados->castradp = $request->input('castrado');
-        $dados->vacinado = $request->input('vacinado');
-        $dados->vermifugado = $request->input('vermifugado');
-        $dados->quaisvacinas = $request->input('quaisvacinas');
-        $dados->foto = $path;
-        $dados->save();
-        return redirect('/')->with('success', 'Novo animal cadastrado com sucesso.');
+
+        Pet::create($data);
+
+        return redirect()->route('index')->with('success', 'Pet cadastrado com sucesso!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $pet = Pet::findOrFail($id);
+        return view('pet.show', compact('pet'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $pet = Pet::findOrFail($id);
+        return view('pet.edit', compact('pet'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $pet = Pet::findOrFail($id);
+        $pet->update($request->all());
+        return redirect()->route('index')->with('success', 'Pet atualizado com sucesso!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {   
-        //
+    public function destroy($id)
+    {
+        $pet = Pet::findOrFail($id);
+        $pet->delete();
+        return redirect()->route('index')->with('success', 'Pet removido com sucesso!');
     }
 
-    public function pesquisarPet(){
+    public function pesquisarPet()
+    {
         return view('pesquisarPet');
     }
 
-    public function procurarPet(Request $request){
+    public function procurarPet(Request $request)
+    {
         $nome = $request->input('nome');
-        $dados = DB::table('PetLar')->select('id', 'nomeObra', 'artistaObra', 'tipoObra', 'estiloObra', 'imagemObra', 'dataObra')
-                 ->where(DB::raw('lower(nome)'), 'like', '%' . strtolower($nome) . '%')->get();
-        return view('verPets', compact('dados'));
+        $pets = Pet::where('nome', 'like', '%' . $nome . '%')->get();
+        return view('verPets', compact('pets'));
     }
 }

@@ -30,44 +30,42 @@
             </div>
         </section>
 
-        <section class="animais">
-            @php
-                $animais = [
-                    ['nome' => 'Nildo', 'status' => 'tratamento', 'raca' => 'SRD', 'idade' => '6 anos', 'porte' => 'Médio', 'sexo' => 'Macho', 'img' => 'nirdo.jpg'],
-                    ['nome' => 'Preta', 'status' => 'disponível', 'raca' => 'SRD', 'idade' => '8 anos', 'porte' => 'Grande', 'sexo' => 'Fêmea', 'img' => 'preta.png'],
-                    ['nome' => 'Amarelo', 'status' => 'disponível', 'raca' => 'SRD', 'idade' => '3 anos', 'porte' => 'Médio', 'sexo' => 'Macho', 'img' => 'amarelo.jpg'],
-                    ['nome' => 'Luna', 'status' => 'adotado', 'raca' => 'SRD', 'idade' => '10 meses', 'porte' => 'Pequeno', 'sexo' => 'Fêmea', 'img' => 'luna.png'],
-                    ['nome' => 'Juia', 'status' => 'disponível', 'raca' => 'Chiuaua', 'idade' => '17 anos', 'porte' => 'Pequeno', 'sexo' => 'Fêmea', 'img' => 'chiuaua.png'],
-                    ['nome' => 'Nildo', 'status' => 'tratamento', 'raca' => 'SRD', 'idade' => '6 anos', 'porte' => 'Médio', 'sexo' => 'Macho', 'img' => 'nirdo.jpg'],
-                    ['nome' => 'Preta', 'status' => 'disponível', 'raca' => 'SRD', 'idade' => '8 anos', 'porte' => 'Grande', 'sexo' => 'Fêmea', 'img' => 'preta.png'],
-                    ['nome' => 'Amarelo', 'status' => 'disponível', 'raca' => 'SRD', 'idade' => '3 anos', 'porte' => 'Médio', 'sexo' => 'Macho', 'img' => 'amarelo.jpg'],
-                    ['nome' => 'Luna', 'status' => 'adotado', 'raca' => 'SRD', 'idade' => '10 meses', 'porte' => 'Pequeno', 'sexo' => 'Fêmea', 'img' => 'luna.png'],
-                    ['nome' => 'Juia', 'status' => 'disponível', 'raca' => 'Chiuaua', 'idade' => '17 anos', 'porte' => 'Pequeno', 'sexo' => 'Fêmea', 'img' => 'chiuaua.png'],
-                    ['nome' => 'Nildo', 'status' => 'tratamento', 'raca' => 'SRD', 'idade' => '6 anos', 'porte' => 'Médio', 'sexo' => 'Macho', 'img' => 'nirdo.jpg'],
-                    ['nome' => 'Preta', 'status' => 'disponível', 'raca' => 'SRD', 'idade' => '8 anos', 'porte' => 'Grande', 'sexo' => 'Fêmea', 'img' => 'preta.png'],
-                    ['nome' => 'Amarelo', 'status' => 'disponível', 'raca' => 'SRD', 'idade' => '3 anos', 'porte' => 'Médio', 'sexo' => 'Macho', 'img' => 'amarelo.jpg'],
-                    ['nome' => 'Luna', 'status' => 'adotado', 'raca' => 'SRD', 'idade' => '10 meses', 'porte' => 'Pequeno', 'sexo' => 'Fêmea', 'img' => 'luna.png'],
-                    ['nome' => 'Juia', 'status' => 'disponível', 'raca' => 'Chiuaua', 'idade' => '17 anos', 'porte' => 'Pequeno', 'sexo' => 'Fêmea', 'img' => 'chiuaua.png'],
-                ];
-            @endphp
+         @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
 
-            <div class="card-grid col-md-10" style="margin-left: 10rem;">
-                @foreach ($animais as $animal)
-                    <div class="animal-card">
-                        <div class="card-header">
-                            <h3 class="nome">{{ $animal['nome'] }}</h3>
-                            <span class="status {{ strtolower($animal['status']) }}">{{ strtoupper($animal['status']) }}</span>
-                        </div>
-                        <img src="{{ asset('storage/images/' . $animal['img']) }}" alt="{{ $animal['nome'] }}">
-                        <p>Raça: {{ $animal['raca'] }}</p>
-                        <p>Idade: {{ $animal['idade'] }}</p>
-                        <p>Porte: {{ $animal['porte'] }}</p>
-                        <p>Sexo: {{ $animal['sexo'] }}</p>
-                        <a href="/petlar/mais" class="btn-vermais">VER MAIS</a>
-                    </div>
-                @endforeach
+   <div class="card-grid">
+    @forelse($pets as $pet)
+        <div class="animal-card">
+            {{-- Cabeçalho com nome e status --}}
+            <div class="card-header">
+                <h3 class="nome">{{ $pet->nome }}</h3>
+                <span class="status {{ strtolower($pet->status ?? 'disponível') }}">
+                    {{ strtoupper($pet->status ?? 'DISPONÍVEL') }}
+                </span>
             </div>
-        </section>
+
+            {{-- Foto --}}
+            @if($pet->foto)
+                <img src="{{ asset('storage/' . $pet->foto) }}" alt="{{ $pet->nome }}">
+            @else
+                <img src="{{ asset('storage/images/placeholder.png') }}" alt="Sem foto">
+            @endif
+
+            {{-- Informações --}}
+            <p>Raça: {{ $pet->raca ?? 'SRD' }}</p>
+            <p>Idade: {{ $pet->idade ? $pet->idade . ' anos' : 'Não informada' }}</p>
+            <p>Porte: {{ ucfirst($pet->porte) }}</p>
+            <p>Sexo: {{ ucfirst($pet->sexo) }}</p>
+
+            {{-- Botão --}}
+            <a href="{{ route('verPets', $pet->id) }}" class="btn-vermais">VER MAIS</a>
+        </div>
+    @empty
+        <p>Nenhum pet cadastrado ainda.</p>
+    @endforelse
+</div>
+
     @endsection
 
 </body>
