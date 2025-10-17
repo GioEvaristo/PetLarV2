@@ -37,30 +37,31 @@
    <div class="card-grid">
     @forelse($pets as $pet)
         <div class="animal-card">
-            {{-- Cabeçalho com nome e status --}}
-            <div class="card-header">
-                <h3 class="nome">{{ $pet->nome }}</h3>
-                <span class="status {{ strtolower($pet->status ?? 'disponível') }}">
-                    {{ strtoupper($pet->status ?? 'DISPONÍVEL') }}
-                </span>
-            </div>
+    {{-- Cabeçalho com nome e status --}}
+    <div class="card-header">
+        <h3 class="nome">{{ $pet->nome }}</h3>
+        <span class="status {{ strtolower($pet->status ?? 'disponível') }}">
+            {{ strtoupper($pet->status ?? 'DISPONÍVEL') }}
+        </span>
+    </div>
 
-            {{-- Foto --}}
-            @if($pet->foto)
-                <img src="{{ asset('storage/' . $pet->foto) }}" alt="{{ $pet->nome }}">
-            @else
-                <img src="{{ asset('storage/images/placeholder.png') }}" alt="Sem foto">
-            @endif
+    {{-- Foto --}}
+    @if($pet->foto)
+        <img src="{{ asset('storage/' . $pet->foto) }}" alt="{{ $pet->nome }}">
+    @else
+        <img src="{{ asset('storage/images/placeholder.png') }}" alt="Sem foto">
+    @endif
 
-            {{-- Informações --}}
-            <p>Raça: {{ $pet->raca ?? 'SRD' }}</p>
-            <p>Idade: {{ $pet->idade ? $pet->idade . ' anos' : 'Não informada' }}</p>
-            <p>Porte: {{ ucfirst($pet->porte) }}</p>
-            <p>Sexo: {{ ucfirst($pet->sexo) }}</p>
+    {{-- Informações --}}
+    <p>Raça: {{ $pet->raca ?? 'SRD' }}</p>
+    <p>Idade: {{ $pet->idade ? $pet->idade . ' anos' : 'Não informada' }}</p>
+    <p>Porte: {{ ucfirst($pet->porte) }}</p>
+    <p>Sexo: {{ ucfirst($pet->sexo) }}</p>
 
-            {{-- Botão --}}
-            <a href="{{ route('verPets', $pet->id) }}" class="btn-vermais">VER MAIS</a>
-        </div>
+    {{-- Botão --}}
+    <a href="{{ route('verPets', $pet->id) }}" class="btn-vermais">VER MAIS</a>
+</div>
+
     @empty
         <p>Nenhum pet cadastrado ainda.</p>
     @endforelse

@@ -7,7 +7,7 @@
         <img src="{{ asset('storage/images/logo-semea.png') }}" class="selo-meio-ambiente-form" alt="Selo Meio Ambiente">
     </section>
 
-    <form action="{{ route('adotar') }}" method="POST" enctype="multipart/form-data">
+    <form class="form" action="{{ route('adotar') }}" method="POST" enctype="multipart/form-data">
         <h2 class="titulo-form">Formulário de Cadastro do Animal</h2>
         @csrf
 

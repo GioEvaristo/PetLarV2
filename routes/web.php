@@ -13,3 +13,12 @@ Route::delete('/petlar/removerPet/{id}', [controllerPetlar::class, 'destroy'])->
 Route::get('/petlar/pesquisar', [controllerPetlar::class, 'pesquisarPet'])->name('pesquisarPets');
 Route::post('/petlar/procurar', [controllerPetlar::class, 'procurarPet'])->name('procurarPet');
 Route::get('/petlar/canil', function(){return view('canil');})->name('canil');
+Route::get('/petlar/filtro', [controllerPetlar::class, 'filtro'])->name('filtroPets');
+
+use App\Http\Controllers\controllerInteresse;
+
+Route::get('/petlar/interesse/{id}', [controllerInteresse::class, 'create'])->name('interesse.create');
+Route::post('/petlar/interesse', [controllerInteresse::class, 'store'])->name('interesse.store');
+
+
+

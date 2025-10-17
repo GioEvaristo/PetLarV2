@@ -6,7 +6,7 @@
             <div class="nav-div">
                 <nav class="main-nav">
                     <a href="/petlar/canil">Conheça o Canil</a>
-                    <a href="/petlar/adotar">Quero adotar</a>
+                    <a href="/petlar/filtro">Quero adotar</a>
                     <a href="/petlar/cadastro">Cadastrar Animal</a>
 
                 </nav>

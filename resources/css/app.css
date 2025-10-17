@@ -321,6 +321,7 @@ footer {
     color: white;
     font-size: 1.4rem;
     font-weight: bold;
+    padding: 2rem;
 
 }
 
@@ -372,4 +373,365 @@ footer {
     bottom: 10px;
     right: 0;
     height: 15rem;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+
+/* Card horizontal */
+.horizontal-card {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    background-color: #77ab59;
+    border-radius: 15px;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Cabeçalho com nome acima da imagem */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+/* Nome */
+.card-top .nome {
+    font-family: "DynaPuff";
+    font-size: 2rem;
+    margin: 0;
+}
+
+/* Status no canto superior direito */
+.card-top .status {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background-color: #b18ff0;
+    color: white;
+}
+
+/* Conteúdo com imagem e info lado a lado */
+.card-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Imagem */
+.card-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Informações */
+.card-info {
+    flex: 1;
+    font-size: 1.2rem;
+}
+
+/* Botão */
+.card-info .btn-vermais {
+    margin-top: 10px;
+    background-color: #1e5f27;
+    color: white;
+    text-align: center;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+/* Container do filtro */
+.filtro-container {
+    background-color: #8843c7;
+    padding: 2rem;
+    border-radius: 30px;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+/* Título */
+.filtro-container h2 {
+    font-family: 'DynaPuff';
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: white;
+}
+
+/* Labels */
+.filtro-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+/* Selects e inputs */
+.filtro-container .form-select,
+.filtro-container .form-control {
+    background-color: #dbb9f8;
+    color: black;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Checkboxes */
+.filtro-container .form-check-input {
+    background-color: white;
+    border: 2px solid #8843c7;
+    margin-right: 0.5rem;
+}
+
+.filtro-container .form-check-label {
+    margin-right: 1rem;
+    font-weight: normal;
+}
+
+/* Slider */
+.filtro-container .idade-slider {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Botão aplicar */
+.filtro-container .btn-aplicar {
+    background-color: #1e5f27;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 2rem;
+    padding: 0.6rem 2rem;
+    border: none;
+    display: block;
+    margin: 2rem auto 0;
+    transition: background-color 0.3s ease;
+}
+
+.filtro-container .btn-aplicar:hover {
+    background-color: #14461b;
+}
+
+.perfil-card {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #8843c7;
+    border-radius: 30px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.perfil-imagem {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.perfil-imagem img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.perfil-conteudo {
+    flex: 2 1 400px;
+    padding: 1rem 2rem;
+}
+
+.perfil-nome {
+    font-family: 'DynaPuff';
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.perfil-descricao {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 2rem;
+}
+
+.btn-adotar {
+    background-color: #1e5f27;
+    color: white;
+    font-weight: bold;
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-adotar:hover {
+    background-color: #14461b;
+}
+
+.perfil-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background-color: #77ab59;
+    border-radius: 30px;
+    padding: 2rem;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.info-bloco {
+    flex: 1 1 200px;
+}
+
+.form-interesse {
+    padding: 2rem;
+}
+
+.form-wrapper {
+    background-color: #8843c7;
+    border-radius: 30px;
+    padding: 2rem;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.pet-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.pet-nome {
+    font-family: 'DynaPuff';
+    font-size: 2.5rem;
+    color: white;
+}
+
+.form-title {
+    font-family: 'DynaPuff';
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-align: center;
+}
+
+.form-label {
+    font-weight: bold;
+    color: white;
+}
+
+.form-control {
+    background-color: #dbb9f8;
+    color: black;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 0.6rem 1rem;
+}
+
+.btn-enviar {
+    background-color: #1e5f27;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #14461b;
+}
+
+.perfil-card {
+    background-color: #8843c7;
+    border-radius: 30px;
+    padding: 2rem;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin-bottom: 2rem;
+}
+
+.perfil-img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.perfil-nome {
+    font-family: 'DynaPuff';
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.perfil-descricao {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 2rem;
+}
+
+.btn-adotar {
+    background-color: #1e5f27;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-adotar:hover {
+    background-color: #14461b;
+}
+
+.perfil-info {
+    background-color: #77ab59;
+    border-radius: 30px;
+    padding: 2rem;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.bg-purple {
+    background-color: #8843c7;
+}
+
+.input-petlar {
+    background-color: #dbb9f8;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+    color: #000;
+}
+
+.input-petlar:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    outline: none;
 }

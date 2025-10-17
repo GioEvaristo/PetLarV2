@@ -44,7 +44,7 @@ class controllerPetlar extends Controller
 
         Pet::create($data);
 
-        return redirect()->route('index')->with('success', 'Pet cadastrado com sucesso!');
+        return redirect()->route('index');
     }
 
     public function show($id)
@@ -84,4 +84,52 @@ class controllerPetlar extends Controller
         $pets = Pet::where('nome', 'like', '%' . $nome . '%')->get();
         return view('verPets', compact('pets'));
     }
+
+    
+
+    public function filtro(Request $request)
+{
+    $query = Pet::query();
+
+    if ($request->filled('especie')) {
+        $query->where('especie', $request->especie);
+    }
+
+    if ($request->filled('porte')) {
+        $query->where('porte', $request->porte);
+    }
+
+    if ($request->filled('pelagem')) {
+        $query->where('pelagem', $request->pelagem);
+    }
+
+    if ($request->filled('sexo')) {
+        $query->where('sexo', $request->sexo);
+    }
+
+    if ($request->filled('castrado')) {
+        $query->where('castrado', $request->castrado);
+    }
+
+    if ($request->filled('vacinado')) {
+        $query->where('vacinado', $request->vacinado);
+    }
+
+    if ($request->filled('vermifugado')) {
+        $query->where('vermifugado', $request->vermifugado);
+    }
+
+    if ($request->filled('cor')) {
+        $query->whereIn('cor', $request->cor); // múltiplas cores
+    }
+
+    if ($request->filled('idade_min') && $request->filled('idade_max')) {
+        $query->whereBetween('idade', [$request->idade_min, $request->idade_max]);
+    }
+
+    $pets = $query->get();
+
+    return view('filtro', compact('pets'));
+}
+
 }
