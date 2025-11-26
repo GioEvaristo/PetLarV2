@@ -21,7 +21,7 @@ return new class extends Migration
            $table->string('porte');
            $table->string('pelagem');
            $table->integer('idade');
-           $table->string('descricao');
+           $table->text('descricao');
            $table->string('cor');
            $table->string('sexo');
            $table->string('castrado');

@@ -35,7 +35,7 @@
       <div style="flex:1 1 260px;min-width:220px;">
         <p><strong>Idade:</strong> {{ $pet->idade ? $pet->idade . ' anos' : ($pet->idade_texto ?? 'Sênior') }}</p>
         <p><strong>Vacinado:</strong> {{ ucfirst($pet->vacinado ?? 'Sim') }}</p>
-        <p><strong>Vacinas:</strong> {{ $pet->quaisvacinas ?? $pet->vacinas ?? 'Polivalente (V8 ou V10), Antirrábica' }}</p>
+        <p><strong>Vacinas:</strong> {{ $pet->quaisvacinas ?? 'Sem Vacinas' }}</p>
       </div>
 
       <div style="flex:1 1 260px;min-width:220px;">
@@ -47,7 +47,7 @@
       <div style="flex:1 1 260px;min-width:220px;">
         <p><strong>Castrado:</strong> {{ ucfirst($pet->castrado ?? 'Sim') }}</p>
         <p><strong>Raça:</strong> {{ $pet->raca ?? 'SRD' }}</p>
-        <p><strong>Vermifugado:</strong> {{ ucfirst($pet->vermifugado ?? 'Sim') }} <span style="opacity:0.9;font-size:1rem;">*</span></p>
+        <p><strong>Vermifugado:</strong> {{ ucfirst($pet->vermifugado ?? 'Sim') }} <span style="opacity:0.9;font-size:1rem;"></span></p>
       </div>
 
       <div style="width:100%;font-size:1rem;margin-top:8px;color:rgba(255,255,255,0.9);">
