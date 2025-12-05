@@ -19,6 +19,7 @@ body {
     font-size: 1.2rem;
 }
 
+
 .container.header-content {
     display: flex;
     justify-content: space-between;
@@ -78,23 +79,25 @@ main {
 }
 
 .slogan {
+    position: absolute;
+    top: 20px;  /* distância do topo */
+    left: 20px; /* distância da esquerda */
     max-width: 50%;
     line-height: 1.2;
-    position: absolute;
-    font-size: 2em;
+    font-size: 2rem;
     font-weight: bold;
     color: white;
-    text-shadow: 2px 2px #000;
+    text-shadow: 2px 2px 5px #000;
     text-align: left;
 }
 
 .slogan-text {
-    font-size: 6rem;
+    font-size: 5rem; /* ajustei para ficar mais proporcional */
     font-weight: bold;
     color: white;
     text-shadow: 2px 2px 5px #000;
     font-family: 'DynaPuff';
-
+    margin: 0; /* remove margens padrão */
 }
 
 .selo-meio-ambiente {
@@ -110,7 +113,7 @@ main {
     font-size: 1.5rem;
     padding: 20px;
     margin: 20px auto;
-    width: 1500px;
+    width: 114rem;
     border-radius: 20px;
 }
 
@@ -130,7 +133,7 @@ main {
 
 .animal-card {
     background-color: #77ab59;
-    width: 35rem;
+    width: 27rem;
     border-radius: 15px;
     padding: 10px;
     text-align: left;
@@ -148,11 +151,38 @@ main {
     border-radius: 15px;
 }
 
-.descricao{
+.imgDesc{
+    display: flex;
+    flex-direction: row;
+}
 
+.descricao{
+    display: block;
+    margin: 0 0 0 20px;
+}
+
+.descricao p{
+    margin: 0;
+    padding: 0;
+}
+
+.descricao a{
+    margin-top: 96px;
 }
 
 .hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 114rem;
+    height: 500px;
+    margin: 20px auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.heroCanil {
     position: relative;
     display: flex;
     justify-content: center;
@@ -163,8 +193,6 @@ main {
     border-radius: 20px;
     overflow: hidden;
 }
-
-
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -464,7 +492,21 @@ footer {
     color: white;
     font-size: 1.4rem;
     font-weight: bold;
-    margin-bottom: 2rem;
+    margin: 20px auto;
+    max-width: 115rem; /* mesma largura da hero */
+    width: 100%;
+}
+
+.container {
+    max-width: 114rem;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.containerCanil {
+    max-width: 1545px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* Título */

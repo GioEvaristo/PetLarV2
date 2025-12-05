@@ -27,7 +27,7 @@ return new class extends Migration
            $table->string('castrado');
            $table->string('vacinado');
            $table->string('vermifugado');
-           $table->string('quaisVacinas');
+           $table->string('quaisvacinas');
            $table->string('foto');
            $table->timestamps();
        });

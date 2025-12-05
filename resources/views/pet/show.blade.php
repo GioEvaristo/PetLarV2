@@ -33,7 +33,7 @@
       </div>
 
       <div style="flex:1 1 260px;min-width:220px;">
-        <p><strong>Idade:</strong> {{ $pet->idade ? $pet->idade . ' anos' : ($pet->idade_texto ?? 'Sênior') }}</p>
+        <p><strong>Idade:</strong> {{ $pet->idade ? $pet->idade . ' meses' : ($pet->idade_texto ?? 'Sênior') }}</p>
         <p><strong>Vacinado:</strong> {{ ucfirst($pet->vacinado ?? 'Sim') }}</p>
         <p><strong>Vacinas:</strong> {{ $pet->quaisvacinas ?? 'Sem Vacinas' }}</p>
       </div>

@@ -52,7 +52,7 @@
             </div>
 
             <div class="mb-3 col-md-6">
-                <label for="idade" class="form-label">Idade (em anos)</label>
+                <label for="idade" class="form-label">Idade (em meses)</label>
                 <input type="number" id="idade" name="idade" class="form-control">
             </div>
         </div>

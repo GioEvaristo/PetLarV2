@@ -11,7 +11,7 @@
 <body>
    @extends('layout')
    @section('content')
-       <section class="hero">
+       <section class="heroCanil">
            <img class="fundo" src="{{ asset('storage/images/banner.png') }}" alt="Banner com cachorro e gato" class='banner'>
            <div class="slogan">
                <p class=" slogan-text">
@@ -22,7 +22,7 @@
                alt="Selo Meio Ambiente">
        </section>
 
-    <div class="container">
+    <div class="containerCanil">
         <h2 class="section-title mt-4 justify-content-center">Seja Bem-Vindo ao Canil.</h2>
         <div class="info-box">Cuidar dos animais é um ato de amor! Aqui no Canil Municipal de Varginha, oferecemos abrigo, cuidados e muito carinho para cães e gatos resgatados, em situação de abandono ou maus-tratos. Nossa missão é promover o bem-estar animal e encontrar lares responsáveis para nossos companheiros de quatro patas.</div>
 
