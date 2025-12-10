@@ -35,7 +35,8 @@
         @endif
 
         <div class="card-grid">
-            @forelse($pets as $pet)
+                @forelse($pets as $pet)
+                
                 <div class="animal-card">
                     <div class="card-header">
                         <h3 class="nome">{{ $pet->nome }}</h3>
@@ -63,6 +64,7 @@
             @empty
                 <p>Nenhum pet cadastrado ainda.</p>
             @endforelse
+            
         </div>
 
     @endsection

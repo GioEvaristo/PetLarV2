@@ -35,7 +35,7 @@ class controllerPetlar extends Controller
             'quaisvacinas' => 'nullable|string',
             'vermifugado' => 'required|string',
             'descricao' => 'nullable|string',
-            'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'foto' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         if ($request->hasFile('foto')) {
@@ -120,7 +120,7 @@ class controllerPetlar extends Controller
     }
 
     if ($request->filled('cor')) {
-        $query->whereIn('cor', $request->cor); // múltiplas cores
+        $query->whereIn('cor', $request->cor);
     }
 
     if ($request->filled('idade_min') && $request->filled('idade_max')) {

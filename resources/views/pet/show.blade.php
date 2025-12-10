@@ -55,8 +55,10 @@
     </div>
 
     <div style="display:flex;gap:16px;justify-content:flex-end;align-items:center;">
-      <a href="{{ route('index') }}" class="btn-voltar" style="background:#1e5f27;color:#fff;padding:14px;border-radius:10px;text-decoration:none;font-weight:800;font-size:1.2rem;">VOLTAR</a>
+      <a href="{{ route('removerPet', $pet->id) }}" class="btn" style="background:#ff2c2c;color:#fff;padding:14px;border-radius:10px;text-decoration:none;font-weight:800;font-size:1.2rem;">DELETAR</a>
 
+      <a href="{{ route('editarPet', $pet->id) }}" class="btn" style="background:#5353ec;color:#fff;padding:14px;border-radius:10px;text-decoration:none;font-weight:800;font-size:1.2rem;">EDITAR</a>
+      <a href="{{ route('index') }}" class="btn-voltar" style="background:#1e5f27;color:#fff;padding:14px;border-radius:10px;text-decoration:none;font-weight:800;font-size:1.2rem;">VOLTAR</a>
       <a href="{{ route('interesse.create', $pet->id) }}" class="btn-adotar" style="background:#b968ff;color:#fff;padding:15px;border-radius:10px;text-decoration:none;font-weight:900;font-size:1.2rem;">QUERO ADOTAR!</a>
     </div>
 

@@ -4,7 +4,7 @@
 <div class="container my-5">
     <h2 class="titulo-form">Editar Pet</h2>
 
-    <form action="{{ route('updatePet', $pet->id) }}" method="POST" enctype="multipart/form-data" class="form p-4 shadow-sm">
+    <form action="{{ route('editarPet', $pet->id) }}" method="POST" enctype="multipart/form-data" class="form p-4 shadow-sm">
         @csrf
         @method('PUT')
 
@@ -43,7 +43,7 @@
             <label for="foto" class="form-label">Foto</label>
             <input type="file" id="foto" name="foto" class="form-control">
             @if($pet->foto)
-                <small>Foto atual: <img src="{{ asset('storage/' . $pet->foto) }}" width="100"></small>
+                <small>Foto atual: <img src="{{ asset('storage/' . $pet->foto) }}" width="400"></small>
             @endif
         </div>
 

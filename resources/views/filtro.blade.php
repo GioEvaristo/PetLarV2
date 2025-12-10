@@ -1,14 +1,12 @@
 @extends('layout')
 
 @section('content')
-
-        <section class="hero">
-            <img class="fundo" src="{{ asset('storage/images/banner.png') }}" alt="Banner com cachorro e gato"
-                class='banner'>
-            <img src="{{ asset('storage/images/logo-semea.png') }}" class="selo-meio-ambiente-form"
-                alt="Selo Meio Ambiente">
-        </section>
+        
     <div class="container">
+        <section class="hero-form">
+        <img class="fundo" src="{{ asset('storage/images/banner.png') }}" alt="Banner com cachorro e gato" class='banner'>
+        <img src="{{ asset('storage/images/logo-semea.png') }}" class="selo-meio-ambiente-form" alt="Selo Meio Ambiente">
+    </section>
         <div class="filtro-container">
             <h2>Filtrar Pets para Adoção</h2>
             <form action="{{ route('filtroPets') }}" method="GET" class="row g-3">

@@ -31,25 +31,6 @@
         </section>
 
         <section class="animais">
-            @php
-                $animais = [
-                    ['nome' => 'Nildo', 'status' => 'tratamento', 'raca' => 'SRD', 'idade' => '6 meses', 'porte' => 'Médio', 'sexo' => 'Macho', 'img' => 'nirdo.jpg'],
-                    ['nome' => 'Preta', 'status' => 'disponível', 'raca' => 'SRD', 'idade' => '8 meses', 'porte' => 'Grande', 'sexo' => 'Fêmea', 'img' => 'preta.png'],
-                    ['nome' => 'Amarelo', 'status' => 'disponível', 'raca' => 'SRD', 'idade' => '3 meses', 'porte' => 'Médio', 'sexo' => 'Macho', 'img' => 'amarelo.jpg'],
-                    ['nome' => 'Luna', 'status' => 'adotado', 'raca' => 'SRD', 'idade' => '10 meses', 'porte' => 'Pequeno', 'sexo' => 'Fêmea', 'img' => 'luna.png'],
-                    ['nome' => 'Juia', 'status' => 'disponível', 'raca' => 'Chiuaua', 'idade' => '17 meses', 'porte' => 'Pequeno', 'sexo' => 'Fêmea', 'img' => 'chiuaua.png'],
-                    ['nome' => 'Nildo', 'status' => 'tratamento', 'raca' => 'SRD', 'idade' => '6 meses', 'porte' => 'Médio', 'sexo' => 'Macho', 'img' => 'nirdo.jpg'],
-                    ['nome' => 'Preta', 'status' => 'disponível', 'raca' => 'SRD', 'idade' => '8 meses', 'porte' => 'Grande', 'sexo' => 'Fêmea', 'img' => 'preta.png'],
-                    ['nome' => 'Amarelo', 'status' => 'disponível', 'raca' => 'SRD', 'idade' => '3 meses', 'porte' => 'Médio', 'sexo' => 'Macho', 'img' => 'amarelo.jpg'],
-                    ['nome' => 'Luna', 'status' => 'adotado', 'raca' => 'SRD', 'idade' => '10 meses', 'porte' => 'Pequeno', 'sexo' => 'Fêmea', 'img' => 'luna.png'],
-                    ['nome' => 'Juia', 'status' => 'disponível', 'raca' => 'Chiuaua', 'idade' => '17 meses', 'porte' => 'Pequeno', 'sexo' => 'Fêmea', 'img' => 'chiuaua.png'],
-                    ['nome' => 'Nildo', 'status' => 'tratamento', 'raca' => 'SRD', 'idade' => '6 meses', 'porte' => 'Médio', 'sexo' => 'Macho', 'img' => 'nirdo.jpg'],
-                    ['nome' => 'Preta', 'status' => 'disponível', 'raca' => 'SRD', 'idade' => '8 meses', 'porte' => 'Grande', 'sexo' => 'Fêmea', 'img' => 'preta.png'],
-                    ['nome' => 'Amarelo', 'status' => 'disponível', 'raca' => 'SRD', 'idade' => '3 meses', 'porte' => 'Médio', 'sexo' => 'Macho', 'img' => 'amarelo.jpg'],
-                    ['nome' => 'Luna', 'status' => 'adotado', 'raca' => 'SRD', 'idade' => '10 meses', 'porte' => 'Pequeno', 'sexo' => 'Fêmea', 'img' => 'luna.png'],
-                    ['nome' => 'Juia', 'status' => 'disponível', 'raca' => 'Chiuaua', 'idade' => '17 meses', 'porte' => 'Pequeno', 'sexo' => 'Fêmea', 'img' => 'chiuaua.png'],
-                ];
-            @endphp
 
             <div class="card-grid col-md-10" style="margin-left: 10rem;">
                 @foreach ($animais as $animal)
