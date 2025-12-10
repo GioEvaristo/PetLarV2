@@ -19,17 +19,17 @@
                 <input type="hidden" name="pet_id" value="{{ $pet->id }}">
 
                 <div class="mb-3">
-                    <label for="telefone" class="form-label text-white">Telefone de Contato (Whatsapp)*</label>
+                    <label for="telefone" class="form-label text-white">Telefone de Contato (Whatsapp)</label>
                     <input type="text" id="telefone" name="telefone" class="form-control input-petlar" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="endereco" class="form-label text-white">Endereço*</label>
+                    <label for="endereco" class="form-label text-white">Endereço</label>
                     <input type="text" id="endereco" name="endereco" class="form-control input-petlar" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="motivacao" class="form-label text-white">Por que deseja adotar esse animal?*</label>
+                    <label for="motivacao" class="form-label text-white">Por que deseja adotar esse animal?</label>
                     <textarea id="motivacao" name="motivacao" class="form-control input-petlar" rows="3" required></textarea>
                 </div>
 

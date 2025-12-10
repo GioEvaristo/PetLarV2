@@ -207,7 +207,7 @@ main {
     color: white;
 }
 
-.status.disponível {
+.status.disponivel {
     background-color: #b18ff0;
 }
 
@@ -215,7 +215,7 @@ main {
     background-color: #8e5af0;
 }
 
-.status.tratamento {
+.status.em_tratamento {
     background-color: #20b5f0;
 }
 

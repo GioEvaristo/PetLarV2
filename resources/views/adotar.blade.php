@@ -32,22 +32,41 @@
 
         <section class="animais">
 
-            <div class="card-grid col-md-10" style="margin-left: 10rem;">
-                @foreach ($animais as $animal)
-                    <div class="animal-card">
-                        <div class="card-header">
-                            <h3 class="nome">{{ $animal['nome'] }}</h3>
-                            <span class="status {{ strtolower($animal['status']) }}">{{ strtoupper($animal['status']) }}</span>
+            <div class="card-grid py-5">
+            <div class="container">
+                <div class="row">
+                    @forelse($pets as $pet)
+                    <div class="col-md-3">
+                        <div class="animal-card mb-4">
+                            <div class="card-header">
+                                <h3 class="nome">{{ $pet->nome }}</h3>
+                                <span class="status {{ strtolower($pet['status']) }}">{{ strtoupper($pet['status']) }}</span>
+                            </div>
+                            <div class="imgDesc">
+                                <div class="img-animal">
+                                    @if($pet->foto)
+                                        <img src="{{ asset('storage/' . $pet->foto) }}" alt="{{ $pet->nome }}">
+                                    @else
+                                        <img src="{{ asset('storage/images/placeholder.png') }}" alt="Animal sem foto">
+                                    @endif
+                                </div>
+                                <div class="descricao">
+                                    <p>Raça: {{ $pet->raca ?? 'SRD' }}</p>
+                                    <p>Idade: {{ $pet->idade ? $pet->idade . ' meses' : 'Não informada' }}</p>
+                                    <p>Porte: {{ ucfirst($pet->porte) }}</p>
+                                    <p>Sexo: {{ ucfirst($pet->sexo) }}</p>
+                                    <a href="{{ route('verPets', $pet->id) }}" class="btn-vermais">VER MAIS</a>
+                                </div>
+                            </div>
                         </div>
-                        <img src="{{ asset('storage/images/' . $animal['img']) }}" alt="{{ $animal['nome'] }}">
-                        <p>Raça: {{ $animal['raca'] }}</p>
-                        <p>Idade: {{ $animal['idade'] }}</p>
-                        <p>Porte: {{ $animal['porte'] }}</p>
-                        <p>Sexo: {{ $animal['sexo'] }}</p>
-                        <a href="/petlar/mais" class="btn-vermais">VER MAIS</a>
                     </div>
-                @endforeach
+                    @empty
+                        <p>Nenhum pet cadastrado ainda.</p>
+                    @endforelse
+                    </div>
+                </div>
             </div>
+        </div>
         </section>
     @endsection
 

@@ -61,6 +61,14 @@
             <label for="foto" class="form-label">Foto do Animal</label>
             <input type="file" id="foto" name="foto" class="form-control">
         </div>
+        <div class="mb-3">
+    <label for="status" class="form-label">Status do Animal</label>
+    <select name="status" id="status" class="form-select">
+        <option value="disponivel">Disponível</option>
+        <option value="em_tratamento">Em Tratamento</option>
+        <option value="adotado">Adotado</option>
+    </select>
+</div>
 
         <div class="mb-3">
             <label for="descricao" class="form-label">Descrição</label>

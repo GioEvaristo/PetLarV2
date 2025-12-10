@@ -36,13 +36,6 @@
                 <div class="info-box"><p>Adotar é um gesto de amor que transforma vidas – a do animal e a sua!</p><p>Todos os nossos cães e gatos disponíveis para adoção estão vacinados, vermifugados e, quando possível, castrados.</p><p>Quer adotar? Clique no menu acima ou venha nos visitar!</p></div>
         </div>
     </div>
-    <h2 class="section-title mt-4 justify-content-center">Conheça nossa equipe</h2>
-    <div class="row">
-        <div class="col-md-3"><img class=equipe src="{{ asset('storage/images/elvis.jpg') }}"></div>
-        <div class="col-md-3"><img class=equipe src="{{ asset('storage/images/elvis.jpg') }}"></div>
-        <div class="col-md-3"><img class=equipe src="{{ asset('storage/images/elvis.jpg') }}"></div>
-        <div class="col-md-3"><img class=equipe src="{{ asset('storage/images/elvis.jpg') }}"></div>
-    </div>
    @endsection
 
 </body>

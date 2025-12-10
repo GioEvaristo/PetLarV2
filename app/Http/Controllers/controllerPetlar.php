@@ -36,14 +36,18 @@ class controllerPetlar extends Controller
             'vermifugado' => 'required|string',
             'descricao' => 'nullable|string',
             'foto' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'status' => 'nullable|string|in:disponivel,adotado,em_tratamento',
+
         ]);
+
+        if (empty($data['quaisvacinas'])) {
+        $data['quaisvacinas'] = null;
+        }
 
         if ($request->hasFile('foto')) {
             $data['foto'] = $request->file('foto')->store('pets', 'public');
         }
-
         Pet::create($data);
-
         return redirect()->route('index');
     }
 
