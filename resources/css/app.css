@@ -242,9 +242,23 @@ footer {
 }
 
 
-.redes-sociais img {
+.baixo-footer img {
     width: 60px;
     margin: 10px;
+}
+
+.baixo-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.redes {
+    margin-left: 800px;
+}
+
+.botao-logar {
+    margin-left: 600px;
 }
 
 .img-footer {
@@ -781,4 +795,187 @@ footer {
 .input-petlar:focus {
     box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
     outline: none;
+}
+
+/* Estilos para formulários de autenticação admin */
+.form-admin {
+    background-color: #77ab59;
+    border-radius: 3rem;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-admin .form-control,
+.form-admin .form-select {
+    background-color: #dbb9f8;
+    color: rgb(0, 0, 0);
+    font-size: 1.3rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 0.6rem 1rem;
+}
+
+.form-admin .form-control:focus,
+.form-admin .form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+
+.form-admin .form-check-input {
+    background-color: white;
+    border: 2px solid #8843c7;
+    margin-right: 0.5rem;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.form-admin .form-check-input:checked {
+    background-color: #8843c7;
+    border-color: #8843c7;
+}
+
+.btn-link-admin {
+    color: white;
+    text-decoration: underline;
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+
+.btn-link-admin:hover {
+    color: #dbb9f8;
+}
+
+.alert {
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.alert-danger {
+    background-color: rgba(255, 44, 44, 0.2);
+    border: 2px solid #ff2c2c;
+    color: white;
+}
+
+.alert-danger ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.alert-danger li {
+    padding: 0.3rem 0;
+}
+
+/* Ações do admin na página inicial */
+.admin-actions {
+    background-color: #8843c7;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-admin-action {
+    background-color: #1e5f27;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-admin-action:hover {
+    background-color: #14461b;
+}
+
+.btn-admin-logout {
+    background-color: #ff2c2c;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 1rem;
+    border: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-admin-logout:hover {
+    background-color: #cc2424;
+}
+
+/* Indicador visual de admin logado */
+.admin-badge {
+    background-color: #ff9800;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Responsividade para formulários admin */
+@media (max-width: 768px) {
+    .form-admin {
+        padding: 1.5rem;
+        font-size: 1.2rem;
+    }
+    
+    .admin-actions {
+        flex-direction: column;
+    }
+    
+    .btn-admin-action,
+    .btn-admin-logout {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Botão de logout no navbar */
+.btn-nav-logout {
+    background-color: #ff2c2c;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 10px;
+}
+
+.btn-nav-logout:hover {
+    background-color: #cc2424;
+}
+
+/* Link de login admin no navbar */
+.link-login-admin {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+.link-login-admin:hover {
+    font-weight: bold;
+}
+
+/* Ajuste para o form inline no navbar */
+.main-nav form {
+    display: inline-block;
+    margin: 0;
 }

@@ -14,11 +14,17 @@
                     <p><b>Telefone: (35) 3690-2019</b></p>
                 </div>
                 <img src="{{ asset('storage/images/logo-semea.png') }}" class="selo-footer">
-                <div class="redes-sociais">
-                    <a href="https://www.instagram.com/bem_estar_animal_semea.vga/"><img src="{{ asset('storage/images/instagram.png') }}" alt="Instagram"></a>
-                    <a href=""><img src="{{ asset('storage/images/whatsapp.png') }}" alt="WhatsApp" ></a>
-                    <a href="https://www.facebook.com/"><img src="{{ asset('storage/images/facebook.png') }}" alt="Facebook"></a>
+                <div class="baixo-footer">
+                    <div class="redes">
+                        <a href="https://www.instagram.com/bem_estar_animal_semea.vga/"><img src="{{ asset('storage/images/instagram.png') }}" alt="Instagram"></a>
+                        <a href=""><img src="{{ asset('storage/images/whatsapp.png') }}" alt="WhatsApp" ></a>
+                        <a href="https://www.facebook.com/"><img src="{{ asset('storage/images/facebook.png') }}" alt="Facebook"></a>
+                    </div>
+                    <div class="botao-logar">
+                        <a href="{{ route('admin.login') }}" class="link-login-admin">Login Admin</a>
+                    </div>
                 </div>
+
             </div>
     
         </div>

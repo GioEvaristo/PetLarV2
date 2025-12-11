@@ -12,6 +12,7 @@
 
     @extends('layout')
     @section('content')
+
         <section class="hero">
             <img class="fundo" src="{{ asset('storage/images/banner.png') }}" alt="Banner com cachorro e gato"
                 class='banner'>
