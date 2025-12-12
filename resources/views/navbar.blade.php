@@ -7,13 +7,19 @@
             <nav class="main-nav">
                 <a href="/petlar/canil">Conheça o Canil</a>
                 <a href="/petlar/filtro">Quero adotar</a>
-                                        @if(Auth::guard('admin')->check())
+                @if(Auth::guard('admin')->check())
+                    <div class="dropdown">
+                    <a class="navA dropbtn">Gerenciamento</a>
+                    <div class="dropdown-content">
                             <a href="/petlar/cadastro">Cadastrar Animal</a>
+                            <a href="{{ route('interesse.index') }}">Interesses de Adoção</a>
                             <form action="{{ route('admin.logout') }}" method="POST" style="display: inline;">
-                                @csrf
-                                <button type="submit" class="btn-nav-logout">Sair</button>
-                            </form>
-                        @endif
+                    </div>
+                </div>
+                        @csrf
+                            <button type="submit" class="btn-nav-logout">Sair</button>
+                    </form>
+                @endif
                 
             </nav>
             <a href="https://www.varginha.mg.gov.br/"><img src="{{ asset('storage/images/logo-prefeitura.png') }}" alt="Prefeitura" class="logo-prefeitura"></a>

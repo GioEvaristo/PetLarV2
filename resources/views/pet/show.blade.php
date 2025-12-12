@@ -59,7 +59,7 @@
           <h3 style="font-size:1.4rem;font-weight:700;margin-bottom:16px;border-bottom:2px solid rgba(255,255,255,0.3);padding-bottom:8px;">
             Idade e Sexo
           </h3>
-          <p style="margin:8px 0;"><strong>Idade:</strong> {{ $pet->idade ? $pet->idade . ' meses' : 'Não informada' }}</p>
+          <p style="margin:8px 0;"><strong>Idade:</strong> {{ $pet->idade . ' ' . $pet->idade_unidade}}</p>
           <p style="margin:8px 0;"><strong>Sexo:</strong> {{ ucfirst($pet->sexo) }}</p>
         </div>
 
@@ -91,14 +91,10 @@
       </div>
 
       <!-- Seção de Vacinas em Destaque -->
-      @if($pet->vacinado == 'sim' && $pet->quaisvacinas)
+      @if($pet->vacinado == 'sim')
       <div style="margin-top:32px;background:rgba(255,255,255,0.2);padding:24px;border-radius:20px;backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.3);">
         <h3 style="font-size:1.5rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:10px;">
-          <span style="font-size:1.8rem;">💉</span> Vacinas Aplicadas
-        </h3>
-        <p style="font-size:1.3rem;margin:0;line-height:1.6;">
-          {{ $pet->quaisvacinas }}
-        </p>
+          <span style="font-size:1.8rem;"></span> Vacinas Aplicadas: {{ $pet->quaisVacinas }}</h3>
       </div>
       @endif
 

@@ -25,7 +25,7 @@
 
             <div class="mb-3 col-md-4">
                 <label for="raca" class="form-label">Raça</label>
-                <input type="text" id="raca" name="raca" class="form-control" value="{{ $pet->raca }}">
+                <input type="text" id="raca" name="raca" class="form-control" value="{{ $pet->raca }}" placeholder="Ex: Labrador, SRD...">
             </div>
 
             <div class="mb-3 col-md-4">
@@ -49,8 +49,21 @@
             </div>
 
             <div class="mb-3 col-md-6">
-                <label for="idade" class="form-label">Idade (em meses)</label>
-                <input type="number" id="idade" name="idade" class="form-control" value="{{ $pet->idade }}">
+                <label for="idade" class="form-label">Idade</label>
+                <div class="input-group">
+                    <input type="number" id="idade" name="idade" class="form-control" min="0" value="{{ $pet->idade }}" placeholder="Ex: 6">
+                    <select name="idade_unidade" id="idade_unidade" class="form-select" style="max-width: 120px;">
+                        <option value="meses" {{ ($pet->idade_unidade ?? 'meses') == 'meses' ? 'selected' : '' }}>Meses</option>
+                        <option value="anos" {{ ($pet->idade_unidade ?? '') == 'anos' ? 'selected' : '' }}>Anos</option>
+                    </select>
+                </div>
+                <small class="form-text text-muted">
+                    @if($pet->idade)
+                        Idade atual: <strong>{{ $pet->idade_formatada }}</strong>
+                    @else
+                        Selecione se a idade é em meses ou anos
+                    @endif
+                </small>
             </div>
         </div>
 
@@ -62,12 +75,12 @@
                     <p class="text-muted small">Foto atual (deixe em branco para manter)</p>
                 </div>
             @endif
-            <input type="file" id="foto" name="foto" class="form-control">
+            <input type="file" id="foto" name="foto" class="form-control" accept="image/*">
         </div>
 
         <div class="mb-3">
             <label for="descricao" class="form-label">Descrição</label>
-            <textarea id="descricao" name="descricao" class="form-control" rows="3">{{ $pet->descricao }}</textarea>
+            <textarea id="descricao" name="descricao" class="form-control" rows="3" placeholder="Conte um pouco sobre a personalidade e história do animal...">{{ $pet->descricao }}</textarea>
         </div>
 
         <div class="mb-3">
@@ -124,8 +137,8 @@
             </div>
 
             <div class="mb-3 col-md-8">
-                <label for="quaisvacinas" class="form-label">Quais vacinas?</label>
-                <input type="text" id="quaisvacinas" name="quaisvacinas" class="form-control" value="{{ $pet->quaisvacinas }}">
+                <label for="quaisVacinas" class="form-label">Quais vacinas?</label>
+                <input type="text" id="quaisVacinas" name="quaisVacinas" class="form-control" value="{{ $pet->quaisVacinas }}" placeholder="Ex: V10, Antirrábica, Giardia...">
             </div>
         </div>
 
@@ -137,10 +150,35 @@
                 <option value="adotado" {{ ($pet->status ?? '') == 'adotado' ? 'selected' : '' }}>Adotado</option>
             </select>
         </div>
-
         <div class="text-end">
             <button type="submit" class="btn">Salvar Alterações</button>
         </div>
     </form>
 </div>
+
+<script>
+// Script para mostrar/ocultar o campo de vacinas
+document.addEventListener('DOMContentLoaded', function() {
+    const vacinadoSelect = document.getElementById('vacinado');
+    const quaisvacinasInput = document.getElementById('quaisvacinas');
+    const quaisvacinasDiv = quaisvacinasInput.parentElement;
+    
+    function updateVacinasField() {
+        if (vacinadoSelect.value === 'nao') {
+            quaisvacinasInput.value = '';
+            quaisvacinasInput.disabled = true;
+            quaisvacinasDiv.style.opacity = '0.6';
+        } else {
+            quaisvacinasInput.disabled = false;
+            quaisvacinasDiv.style.opacity = '1';
+        }
+    }
+    
+    // Atualiza ao carregar
+    updateVacinasField();
+    
+    // Atualiza ao mudar
+    vacinadoSelect.addEventListener('change', updateVacinasField);
+});
+</script>
 @endsection

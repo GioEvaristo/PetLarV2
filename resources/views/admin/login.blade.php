@@ -45,7 +45,6 @@
         </div>
 
         <div class="text-end">
-            <a href="{{ route('admin.register') }}" class="btn-link-admin me-3">Não tem conta? Cadastre-se</a>
             <button type="submit" class="btn">Entrar</button>
         </div>
     </form>

@@ -87,7 +87,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <label>Idade (em meses)</label>
+                    <label>Idade</label>
                     <div class="d-flex">
                         <input type="number" name="idade_min" class="form-control me-2" placeholder="Mín">
                         <input type="number" name="idade_max" class="form-control" placeholder="Máx">
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                     @empty
-                        <p>Nenhum pet cadastrado ainda.</p>
+                        <p>Infelizmente não há pets com as características pesquisadas.</p>
                     @endforelse
                     </div>
                 </div>

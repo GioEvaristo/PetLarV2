@@ -952,7 +952,6 @@ footer {
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
     font-family: 'Open Sans', sans-serif;
     margin-left: 10px;
 }
@@ -963,6 +962,7 @@ footer {
 
 /* Link de login admin no navbar */
 .link-login-admin {
+    font-size: 1.3rem;
     color: white;
     text-decoration: none;
     margin-left: 10px;
@@ -971,11 +971,49 @@ footer {
 }
 
 .link-login-admin:hover {
-    font-weight: bold;
+    font-weight: bolder;
+    background-color: #58d410;
 }
 
 /* Ajuste para o form inline no navbar */
 .main-nav form {
     display: inline-block;
     margin: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    border-radius: 6px;
+    z-index: 999;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-content a:hover {
+    color:#77ab59;
+}
+
+/* mostra o menu quando passa o mouse */
+.dropdown:hover .dropdown-content {
+    display: block;
 }

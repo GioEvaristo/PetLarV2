@@ -32,3 +32,11 @@ Route::middleware(['admin'])->group(function () {
     Route::put('/petlar/editarPet/{id}', [controllerPetlar::class, 'update'])->name('updatePet');
     Route::get('/petlar/removerPet/{id}', [controllerPetlar::class, 'destroy'])->name('removerPet');
 });
+
+// Rotas administrativas (protegidas)
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/interesses', [controllerInteresse::class, 'index'])->name('interesse.index');
+    Route::get('/interesse/{id}', [controllerInteresse::class, 'show'])->name('interesse.show');
+    Route::patch('/interesse/{id}/status', [controllerInteresse::class, 'updateStatus'])->name('interesse.updateStatus');
+    Route::delete('/interesse/{id}', [controllerInteresse::class, 'destroy'])->name('interesse.destroy');
+});

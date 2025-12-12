@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="descricao">
                                     <p>Raça: {{ $pet->raca ?? 'SRD' }}</p>
-                                    <p>Idade: {{ $pet->idade ? $pet->idade . ' meses' : 'Não informada' }}</p>
+                                    <p>Idade: {{ $pet->idade . $pet->idade_unidade }}</p>
                                     <p>Porte: {{ ucfirst($pet->porte) }}</p>
                                     <p>Sexo: {{ ucfirst($pet->sexo) }}</p>
                                     <a href="{{ route('verPets', $pet->id) }}" class="btn-vermais">VER MAIS</a>

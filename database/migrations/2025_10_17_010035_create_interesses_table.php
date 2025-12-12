@@ -6,26 +6,20 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('interesses', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('pet_id')->constrained()->onDelete('cascade');
-    $table->string('telefone');
-    $table->string('endereco');
-    $table->text('motivacao');
-    $table->text('infoadicional')->nullable();
-    $table->timestamps();
-});
-
+            $table->id();
+            $table->foreignId('pet_id')->constrained('pets')->onDelete('cascade');
+            $table->string('telefone');
+            $table->string('endereco');
+            $table->text('motivacao');
+            $table->text('infoadicional')->nullable();
+            $table->enum('status', ['pendente', 'aprovado', 'rejeitado'])->default('pendente');
+            $table->timestamps();
+        });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('interesses');
